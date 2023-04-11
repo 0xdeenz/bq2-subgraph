@@ -1,0 +1,23 @@
+type MerkleTree @entity {
+    id: ID!
+    depth: BigInt!
+    root: BigInt
+    numberOfLeaves: Int!
+    group: Group!
+}
+
+type Group @entity {
+    id: ID!
+    merkleTree: MerkleTree!
+    timestamp: BigInt!
+    admin: Bytes
+    members: [Member!] @derivedFrom(field: "group")
+}
+
+type Member @entity {
+    id: ID!
+    identityCommitment: BigInt!
+    timestamp: BigInt!
+    index: Int!
+    group: Group!
+}

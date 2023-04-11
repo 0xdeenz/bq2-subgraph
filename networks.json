@@ -1,0 +1,11 @@
+{
+  "mumbai": {
+    "TestCredentialManager": {
+      "address": "0x043c69abf15d154cf0Ffc482f8d63eE7874e1cee",
+      "startBlock": 34132684
+    },
+    "CredentialsRegistry": {
+      "address": "0x5A140303E92da80BF96a734fd777957fF02714C4"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TestCredentialManager
+    network: mumbai
+    source:
+      address: "0x043c69abf15d154cf0Ffc482f8d63eE7874e1cee"
+      abi: TestCredentialManager
+      startBlock: 34132684
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+      abis:
+        - name: TestCredentialManager
+          file: ./abis/TestCredentialManager.json
+      eventHandlers:
+        - event: GradeMemberAdded(indexed uint256,uint256,uint256,uint256)
+          handler: addGradeGroupMember
+        - event: CredentialsMemberAdded(indexed uint256,uint256,uint256,uint256)
+          handler: addCredentialsGroupMember
+        - event: NoCredentialsMemberAdded(indexed uint256,uint256,uint256,uint256)
+          handler: addNoCredentialsGroupMember
+      file: ./src/test-credential-manager.ts
+  - kind: ethereum
+    name: CredentialsRegistry
+    network: mumbai
+    source:
+      address: "0x5A140303E92da80BF96a734fd777957fF02714C4"
+      abi: CredentialsRegistry
+      startBlock: 34132681
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Group
+      abis:
+        - name: CredentialsRegistry
+          file: ./abis/CredentialsRegistry.json
+      eventHandlers:
+        - event: CredentialCreated(indexed uint256,indexed uint256,uint256)
+          handler: createCredential
+      file: ./src/credentials-registry.ts
