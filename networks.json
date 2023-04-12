@@ -5,7 +5,8 @@
       "startBlock": 34132684
     },
     "CredentialsRegistry": {
-      "address": "0x5A140303E92da80BF96a734fd777957fF02714C4"
+      "address": "0x5A140303E92da80BF96a734fd777957fF02714C4",
+      "startBlock": "34132681"
     }
   }
 }
